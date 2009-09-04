@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Sits: <%= controller.action_name %></title>
+    <%= javascript_include_tag "prototype" %>
+    <%= javascript_include_tag "effects" %>
+    <%= javascript_include_tag "about" %>
+    <%= yield :script %>
+
+    <%= stylesheet_link_tag 'main' %>
+    <%= stylesheet_link_tag 'floor_plan' %>
+
+  </head>
+  <body>
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <form id="search" action="http://www.google.com/search" method="get">
+              <input type="hidden" name="hl" value="en" />
+              <input type="text" id="search-text" name="q" value="site:novell.com " />
+              <input type="submit" value="Search" /> the Novell's site
+            </form>
+          </li>
+        
+          <li>
+            <h3>Join the OPS community</h3>
+            <ul class="links">
+              <li><a href="http://147.2.207.240/">Main OPS Server Hub</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3>Admin the sitting plan</h3>
+            <ul class="links">
+              <li><a href="/sits">Show sitting</a></li>
+              <li><a href="/sits/new">Add new sitting</a></li>
+              <li><a href="/sits/edit" id='editsite'>Modifly sitting</a></li>
+            </ul>
+          </li>
+
+        </ul>
+	Create new line <br/>
+        <div id="data">
+             <%= yield  %>
+        </div>
+      <!-- Finish sidebar -->
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <p style="color: green"><%= flash[:notice] %></p>
+          <h1><%= yield :header %></h1>
+        <!-- Administrator you are updating the floor sitting!! -->
+        <!-- Finish header -->
+        </div>
+
+        <div id="about">
+          <div id="about-content" style="display: none"></div>
+        </div>
+        
+        <div id="floor-plan" >
+          <%= image_tag "floor_plan_left.png" %> 
+          <%= yield :sitimage %>
+        </div>
+      <!-- Finish content -->
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+
+    <!-- Finish page -->
+    </div>
+  </body>
+</html>

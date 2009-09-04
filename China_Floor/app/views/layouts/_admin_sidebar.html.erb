@@ -1,0 +1,33 @@
+<!-- ---------------------------------------- sidebar START ------------------------------------ -->
+<div id="sidebar">
+    <ul id="sidebar-items">
+        <li>
+            <form id="search" action="http://www.google.com/search" method="get">
+                <input type="hidden" name="hl" value="en" />
+                <input type="text" id="search-text" name="q" value="site:novell.com " />
+                <input type="submit" value="Search" /> the Novell's site
+            </form>
+        </li>
+        
+        <li>
+            <h3>Join the OPS Community </h3>
+            <ul class="links">
+                <li><a href="http://147.2.207.240/">China OPS Server Hub</a></li>
+            </ul>
+        </li>
+          
+        <li>
+            <h3>Admin the sitting plan</h3>
+            <ul class="links">
+                <li><a href="/">Back to viewonly mode</a></li>
+                <li><a href="/sits">Admin sitting list</a></li>
+                <li><a href="/sits/new">Add new sitting</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <div id="data">
+        <%= yield  %>
+    </div>
+</div>
+<!-- ---------------------------------------- sidebar END ------------------------------------ -->

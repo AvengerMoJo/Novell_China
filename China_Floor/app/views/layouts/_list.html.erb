@@ -1,0 +1,13 @@
+<h1><%= yield :header %></h1>
+
+<table>
+  <tr>
+    <%= yield :table_header %>
+  </tr>
+
+  <% for member in @team %>
+  <tr>
+    <%= yield :table_field %>
+  </tr>
+  <% end %>
+</table>

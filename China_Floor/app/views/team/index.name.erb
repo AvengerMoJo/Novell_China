@@ -1,0 +1,24 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+<% end %>
+
+<% content_for :header do %>
+<% end %>
+
+<h1>Team Name List</h1>
+
+<table>
+  <tr>
+    <th>Login ID</th>
+  </tr>
+
+<% for member in @team %>
+  <tr>
+    <td><%=h member.name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

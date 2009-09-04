@@ -1,0 +1,50 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+<% end %>
+
+<% content_for :header do %>
+  <% if @viewonly %>
+    Please click on the sit to view the person's info.
+  <% else %>
+    Administrator, sit information is on the sidebar. 
+  <% end %>
+<% end %>
+
+<% content_for :sitimage do %>
+<% end %>
+
+
+<h1>Listing sits</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+<!-- 
+    <th>X</th>
+    <th>Y</th>
+-->
+    <th>User</th>
+    <th>Used</th>
+  </tr>
+
+<% for sit in @sits %>
+  <tr>
+    <td><%=h sit.id %></td>
+<!--
+    <td><%=h sit.x %></td>
+    <td><%=h sit.y %></td>
+-->
+    <td><%=h sit.user %></td>
+    <td><%=h sit.used %></td>
+    <td><%= link_to 'Show', sit %></td>
+    <td><%= link_to 'Edit', edit_sit_path(sit) %></td>
+    <td><%= link_to 'Destroy', sit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sit', new_sit_path %>

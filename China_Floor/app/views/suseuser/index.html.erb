@@ -1,0 +1,28 @@
+<% content_for :script do %>
+<% end %>
+<% content_for :script_onload do %>
+<% end %>
+<% content_for :header do %>
+<% end %>
+  <img id=user-info-close-icon src='/images/close.png' onclick='person_info(false);'/> 
+  <h1 id=user-info-header>
+    <img id=user-info-photo src='/images/photos/<%=h @userid %>.png'><span id=user-info-name><%=h @user.name %></span>
+  </h1>
+  <table id='user-info-table'>
+    <tr>
+      <th>Login ID</th>
+      <td><%=h @user.login %></td>
+    </tr>
+    <tr>
+      <th>User Name</th>
+      <td><%=h @user.name %></td>
+    </tr>
+    <tr>
+      <th>Email Address</th>
+      <td><%=h @user.mail %></td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td><%=h @user.phone %></td>
+    </tr>
+  </table>

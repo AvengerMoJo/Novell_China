@@ -1,0 +1,19 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+<% end %>
+
+<% content_for :header do %>
+OPS China's Team Member List 
+<% end %>
+
+<% content_for :table_header do %>
+      <th>Login ID</th>
+      <th>User Name</th>
+<% end %>
+
+<% content_for :table_field do %>
+      <td><%=h member.login %></td>
+      <td><%=h member.name %></td>
+<% end %>

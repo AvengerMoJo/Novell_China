@@ -1,0 +1,40 @@
+<% content_for :script do %>
+<% end %> 
+
+<% content_for :script_onload do %>
+  $('floor-plan').onclick = function(event) { Sits.addSit(event,this); }
+  setInterval ( "Sits.blinking( $('new_sit_image') );" , 700 );
+
+<% end %> 
+
+<% content_for :header do %>
+Administrator, you are click to add new sit position.
+<% end %> 
+
+<h1>New sit</h1>
+
+<% form_for(@sit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :x %><br />
+    <%= f.text_field :x %>
+  </p>
+  <p>
+    <%= f.label :y %><br />
+    <%= f.text_field :y %>
+  </p>
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :used %><br />
+    <%= f.text_field :used %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', sits_path %>

@@ -1,0 +1,46 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+<% end %>
+
+<% content_for :header do %>
+OPS China's Team Member List 
+<% end %>
+
+  <h1>Team Login ID List</h1>
+  <table id='team-id-table'>
+    <tr>
+      <% if ( @login ) %>
+      <th>Login ID</th>
+      <% end %>
+      <% if ( @name ) %>
+      <th>User Name</th>
+      <% end %>
+      <% if ( @mail ) %>
+      <th>Email Address</th>
+      <% end %>
+      <% if ( @phone) %>
+      <th>Phone Number</th>
+      <% end %>
+    </tr>
+
+  <% for member in @team %>
+    <tr id=<%=h member.login %>>
+      <% if ( @login ) %>
+      <td><%=h member.login %></td>
+      <% end %>
+      <% if ( @name ) %>
+      <td><%=h member.name %></td>
+      <% end %>
+      <% if ( @mail ) %>
+      <td><%=h member.mail %></td>
+      <% end %>
+      <% if ( @phone) %>
+      <td><%=h member.phone %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />

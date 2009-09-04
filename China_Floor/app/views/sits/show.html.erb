@@ -1,0 +1,74 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+    setInterval ( "Sits.blinking( $('sit<%=h @sit.id %>') );" , 700 );
+<% end %>
+
+<% content_for :header do %>
+  Administrator, the blinking sit is the sit you choose. 
+<% end %>
+
+<% content_for :sitimage do %>
+<% end %>
+
+
+<p>
+  <b>ID:</b>
+  <%=h @sit.id %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%=h @sit.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%=h @sit.y %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @sit.user %>
+</p>
+
+<p>
+  <b>Used:</b>
+  <%=h @sit.used %>
+</p>
+
+
+<%= link_to 'Edit', edit_sit_path(@sit) %> |
+<%= link_to 'Back', sits_path %>
+</br>
+
+<h1>Listing sits</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+<!-- 
+    <th>X</th>
+    <th>Y</th>
+-->
+    <th>User</th>
+    <th>Used</th>
+  </tr>
+
+<% for sit in @sits %>
+  <tr>
+    <td><%=h sit.id %></td>
+<!--
+    <td><%=h sit.x %></td>
+    <td><%=h sit.y %></td>
+-->
+    <td><%=h sit.user %></td>
+    <td><%=h sit.used %></td>
+    <td><%= link_to 'Show', sit %></td>
+    <td><%= link_to 'Edit', edit_sit_path(sit) %></td>
+    <td><%= link_to 'Destroy', sit, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

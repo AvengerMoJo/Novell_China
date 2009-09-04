@@ -1,0 +1,51 @@
+#floor-plan {
+    padding-left: 75px;
+    padding-right: 30px;
+
+    border-top: 1px solid #ccc;
+    margin-top: 25px;
+    padding-top: 15px;
+
+}
+
+#team-id-list {
+    border: 3px solid #f44;
+    background-color: #f0f0c0;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    position: absolute; 
+    right: 100px; 
+    top: 10px; 
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+}
+
+#user-info-header {
+}
+#user-info-photo {
+    vertical-align : middle;
+}
+
+#user-info-name {
+}
+
+#user-info {
+    border: 3px solid #44f;
+    background-color: #f0f0c0;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    position: absolute; 
+    left: 10px; 
+    top: 10px; 
+    width: 350px;
+    height: 250px;
+}
+
+#user-info-close-icon {
+    float: right;
+    right : 10px;
+    top: 10px; 
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Welcome to China floor!</title>
+    <%= javascript_include_tag "prototype" %>
+    <%= javascript_include_tag "effects" %>
+    <%= javascript_include_tag "about" %>
+    <script>
+      window.onload = function() {
+        $('search-text').value = '';
+        $('search').onsubmit = function() {
+        $('search-text').value = 'site:novell.com ' + $F('search-text');
+        }
+      }
+    </script>
+
+    <%= stylesheet_link_tag 'main' %>
+    <%= stylesheet_link_tag 'floor_plan' %>
+  </head>
+  <body>
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <form id="search" action="http://www.google.com/search" method="get">
+              <input type="hidden" name="hl" value="en" />
+              <input type="text" id="search-text" name="q" value="site:novell.com " />
+              <input type="submit" value="Search" /> the Novell's site
+            </form>
+          </li>
+        
+          <li>
+            <h3>Join the OPS community</h3>
+            <ul class="links">
+              <li><a href="http://147.2.207.240/">Main OPS Server Hub</a></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3>Admin the sitting plan</h3>
+            <ul class="links">
+              <li><a href="sits">Admin sitting</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Welcome to the floor of China's OPS</h1>
+        </div>
+
+        <div id="about">
+          <h3><a href="rails/info/properties" onclick="about(); return false">About this application&rsquo;s environment</a></h3>
+          <div id="about-content" style="display: none"></div>
+        </div>
+        <div id="floor_plan">
+             <img src="images/floor_plan_left.png"/>
+             <!-- <img src="images/floor_plan_bottom.png"/> -->
+        </div>
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+    </div>
+  </body>
+</html>

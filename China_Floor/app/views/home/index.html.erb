@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Sits: <%= controller.action_name %></title>
+    <%= javascript_include_tag "prototype" %>
+    <%= javascript_include_tag "effects" %>
+    <%= javascript_include_tag "about" %>
+    <%= javascript_include_tag "sit" %>
+    <%= yield :script %>
+    <script type="text/javascript">
+      window.onload = function() {
+        <% for sit in @sits %>
+          Sits.showSit(<%=h sit.x %>, <%=h sit.y %>, $('sit<%=h sit.id %>') );
+        <% end %>
+        <%= yield :script_onload %>
+      }
+    </script>
+
+    <%= stylesheet_link_tag 'main' %>
+    <%= stylesheet_link_tag 'floor_plan' %>
+
+  </head>
+  <body>
+    <div id="page">
+      <%= render :partial => "layouts/sidebar" %>
+      <div id="content">
+        <div id="header">
+          <p style="color: green"><%= flash[:notice] %></p>
+          <h1><%= yield :header %></h1>
+        <!-- Finish header -->
+        </div>
+
+        <div id="about">
+          <div id="about-content" style="display: none"></div>
+        </div>
+        
+        <div id="floor-plan" >
+          <%= image_tag "floor_plan_left.png" %> 
+          <% for sit in @sits %>
+            <div onclick="person_info( true, <%=h sit.id%>, event);" id=sit<%=h sit.id%>>
+              <img src=/sitimage/<%=h sit.id %>.png/>
+            </div>
+          <% end %>
+
+          <%= yield :sitimage %>
+        </div>
+      <!-- Finish content -->
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+
+    <!-- Finish page -->
+    </div>
+    <div id='team-id-list' style='display: none'></div>
+    <div id='user-info' style='display: none'></div>
+  </body>
+</html>

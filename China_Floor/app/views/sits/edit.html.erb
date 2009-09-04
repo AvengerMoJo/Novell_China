@@ -1,0 +1,43 @@
+<% content_for :script do %>
+<% end %>
+
+<% content_for :script_onload do %>
+    $('floor-plan').onclick = function(event) { Sits.editSit(event,this, <%=h @sit.id %>); }
+    setInterval ( "Sits.blinking( $('sit<%=h @sit.id %>') );" , 700 );
+    ops_team(false);
+<% end %>
+
+
+<% content_for :header do %>
+Administrator, please click to update the current sit.
+<% end %>
+
+<h1>Editing sit</h1>
+
+<% form_for(@sit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :x %><br />
+    <%= f.text_field :x %>
+  </p>
+  <p>
+    <%= f.label :y %><br />
+    <%= f.text_field :y %>
+  </p>
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user, :onfocus => "ops_team(true)", :onblur =>"ops_team(false)" %>
+    <!-- <%= observe_field(:sit_user, :frequency => 0.25, :update => :sit_user, :url => { :controller => "team.login" }) %> -->
+  </p>
+  <p>
+    <%= f.label :used %><br />
+    <%= f.text_field :used %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sit %> |
+<%= link_to 'Back', sits_path %>

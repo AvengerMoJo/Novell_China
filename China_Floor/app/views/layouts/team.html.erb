@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Team: <%= controller.action_name %></title>
+    <%= javascript_include_tag "prototype" %>
+    <%= javascript_include_tag "effects" %>
+    <%= javascript_include_tag "about" %>
+    <%= javascript_include_tag "sit" %>
+    <%= yield :script %>
+    <script type="text/javascript">
+      window.onload = function() {
+      <%= yield :script_onload %>
+      }
+    </script>
+
+    <%= stylesheet_link_tag 'main' %>
+    <%= stylesheet_link_tag 'floor_plan' %>
+
+  </head>
+  <body>
+    <div id="page">
+      <%= render :partial => "layouts/sidebar" %>
+      <div id="content">
+        <div id="header">
+          <p style="color: green"><%= flash[:notice] %></p>
+          <h1><%= yield :header %></h1>
+        <!-- Finish header -->
+        </div>
+
+        <div id="about">
+          <div id="about-content" style="display: none"></div>
+        </div>
+        
+        <div id="team-list" >
+          <%= yield %>
+        </div>
+      <!-- Finish content -->
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+
+    <!-- Finish page -->
+    </div>
+  </body>
+</html>
